@@ -7,6 +7,8 @@ Desafios
 Rastreamento Ineficiente: O rastreamento manual dos produtos resultava em erros e perdas, aumentando os custos operacionais.
 Visibilidade Limitada: A falta de visibilidade em tempo real sobre os estoques dificultava a tomada de decisões rápidas.
 Análise de Dados: A empresa precisava de insights para prever a demanda e otimizar os níveis de estoque.
+![- An informative illustration depicting the concept of Oracle Cloud Logistics (OCL) and the implementation of RFID in logistics  Include visual elements](https://github.com/user-attachments/assets/a7ce1cee-8383-4226-86ee-5e12235a4180)
+
 
 Solução Proposta
 Implementação de uma solução de RFID integrada com Oracle Cloud e inteligência artificial, utilizando as seguintes etapas:
