@@ -75,7 +75,7 @@ Este projeto abrange a implementação de uma solução de rastreamento RFID int
 1. Configuração do Backend (Spring Boot)
 Dependências no pom.xml
 xml
-Copiar código
+
 <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -138,7 +138,7 @@ public interface RfidTagRepository extends JpaRepository<RfidTag, Long> {
 }
 Serviço RFID
 java
-Copiar código
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -159,7 +159,7 @@ public class RfidTagService {
 }
 Controlador RFID
 java
-Copiar código
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -183,7 +183,7 @@ public class RfidTagController {
 }
 Configuração de Segurança
 java
-Copiar código
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -206,7 +206,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 2. Configuração do Frontend (React)
 Componente Principal
 jsx
-Copiar código
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -247,7 +247,7 @@ export default App;
 3. Integração com Oracle Cloud usando Terraform
 Script Terraform para Oracle Cloud
 hcl
-Copiar código
+
 provider "oci" {
   region = "us-phoenix-1"
 }
@@ -321,7 +321,7 @@ resource "azurerm_sql_database" "example" {
 8. Integração de Inteligência Artificial
 Exemplo de Análise Preditiva
 java
-Copiar código
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -338,7 +338,7 @@ public class PredictionController {
 }
 Serviço de Previsão
 java
-Copiar código
+
 import org.springframework.stereotype.Service;
 
 @Service
