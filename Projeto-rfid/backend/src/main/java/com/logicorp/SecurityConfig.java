@@ -1,17 +1,22 @@
 package com.logicorp;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
-public class SecurityConfig {
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
-            .authorizeRequests().anyRequest().permitAll();
-        return http.build();
+            .authorizeRequests()
+                .antMatchers("/api/rfid/**").hasRole("USER")
+                .antMatchers("/api/rfid/update", "/api/rfid/update-location").hasRole("ADMIN")
+                .antMatchers("/api/predict/**").permitAll()
+            .and()
+            .httpBasic();
     }
 }

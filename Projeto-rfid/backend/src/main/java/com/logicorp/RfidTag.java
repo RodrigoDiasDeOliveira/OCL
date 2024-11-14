@@ -1,42 +1,30 @@
-package com.logicorp;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 @Entity
 public class RfidTag {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
+    private String tagId;
+
+    @NotNull
     private String productName;
+
+    @NotNull
     private String location;
 
-    // Getters e setters
+    private LocalDateTime lastScanned;
 
-    public Long getId() {
-        return id;
-    }
+    // Getter e Setter
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
+    public long getTimeSinceLastScan() {
+        if (lastScanned == null) return -1;
+        return ChronoUnit.MINUTES.between(lastScanned, LocalDateTime.now());
     }
 }
