@@ -63,6 +63,23 @@
             <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
 
+      <!--Dependencias de Machine laerning e rede neural-->
+       <dependency>
+        <groupId>org.deeplearning4j</groupId>
+        <artifactId>deeplearning4j-core</artifactId>
+        <version>1.0.0-M1.1</version>
+        </dependency>
+       <dependency>
+        <groupId>org.nd4j</groupId>
+        <artifactId>nd4j-native-platform</artifactId>
+        <version>1.0.0-M1.1</version>
+       </dependency>
+       <dependency>
+          <groupId>weka</groupId>
+          <artifactId>weka-stable</artifactId>
+           <version>3.8.5</version>
+        </dependency>
+
         <!-- Dependência para facilitar o uso de JSON e integração com o Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
