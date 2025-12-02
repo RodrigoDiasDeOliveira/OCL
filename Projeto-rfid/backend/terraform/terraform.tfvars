@@ -1,0 +1,12 @@
+oci_tenancy_ocid     = "ocid1.tenancy.oc1..aaaaaaa..."
+oci_user_ocid        = "ocid1.user.oc1..aaaaaaa..."
+oci_fingerprint      = "12:34:56:..."
+oci_private_key_path = "~/.oci/oci_api_key.pem"
+oci_compartment_id   = "ocid1.compartment.oc1..aaaaaaa..."
+db_admin_password    = "SuperSecreto123!#"
+
+azure_subscription_id = "12345678-1234-1234-1234-1234567890ab"
+azure_client_id       = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+azure_client_secret   = "SuperSecretoAzure"
+azure_tenant_id       = "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"
+azure_sql_password    = "AzureSecreto123!#"
