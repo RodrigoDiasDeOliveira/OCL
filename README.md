@@ -1,4 +1,7 @@
 ![image](https://github.com/user-attachments/assets/3d333150-0833-4fb9-986d-9d4e316d58f1)
+![Oracle Cloud](https://img.shields.io/badge/Oracle_Cloud-Primary-F80000?style=for-the-badge&logo=oracle&logoColor=white)
+![Azure DR](https://img.shields.io/badge/Azure-Disaster_Recovery-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![Multi-Cloud Ready](https://img.shields.io/badge/Multi--Cloud-Ready-0066CC?style=for-the-badge&logo=cloud&logoColor=white)
 
 # OCL – Oracle Cloud Logistics  
 **RFID + AI-Powered Inventory Tracking with Multi-Cloud High Availability**
