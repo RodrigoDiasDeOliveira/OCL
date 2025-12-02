@@ -1,0 +1,127 @@
+# =========================
+# Java / Spring Boot
+# =========================
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+pom.xml.versionsBackup
+
+# IDEs
+.idea/
+*.iws
+*.iml
+*.ipr
+*.swp
+*.swo
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# =========================
+# Node / React (Frontend)
+# =========================
+frontend/node_modules/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+frontend/build/
+frontend/dist/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Terraform
+# =========================
+terraform/.terraform/
+terraform/.terraform.*
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/*.tfvars
+terraform/*.tfvars.json
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/crash.log
+terraform/crash.*.log
+
+# Terraform lock
+terraform/.terraform.lock.hcl
+
+# Plano de execução
+terraform/*.plan
+terraform/*.out
+
+# =========================
+# Docker
+# =========================
+docker-compose.override.yml
+
+# =========================
+# Kubernetes (gerados localmente)
+# =========================
+kubernetes/*.kubeconfig
+
+# =========================
+# Secrets & Credentials (NUNCA commit)
+# =========================
+*.pem
+*.key
+*.cer
+*.crt
+*.jks
+*.p12
+*.keystore
+*.truststore
+
+# Oracle Wallet
+/Wallet_*/
+*/Wallet_*/
+
+# Azure / OCI credentials
+.env
+.secrets/
+credentials/
+*.azureauth
+
+# =========================
+# OS & Misc
+# =========================
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# =========================
+# Local testing
+# =========================
+local.*
+*.local
+
+# =========================
+# Spring Boot
+# =========================
+application-local.yml
+application-dev.yml
+application-prod.yml
+
+# =========================
+# React build cache
+# =========================
+frontend/.cache/
+frontend/public/build/
