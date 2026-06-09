@@ -3,11 +3,13 @@ package com.logicorp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RfidTagService {
-    
+
     @Autowired
     private RfidTagRepository rfidTagRepository;
 
@@ -26,6 +28,7 @@ public class RfidTagService {
             throw new RuntimeException("Tag not found");
         }
     }
+
     public void updateTagsLocationByProduct(String productName, String newLocation) {
         List<RfidTag> tags = rfidTagRepository.findByProductName(productName);
         for (RfidTag tag : tags) {
@@ -34,10 +37,26 @@ public class RfidTagService {
         }
         rfidTagRepository.saveAll(tags);
     }
+
     public void removeObsoleteTags() {
         List<RfidTag> obsoleteTags = rfidTagRepository.findAll().stream()
-                .filter(tag -> tag.getTimeSinceLastScan() > 1440) // 1 day in minutes
+                .filter(tag -> tag.getTimeSinceLastScan() > 1440) // 24 horas
                 .toList();
         rfidTagRepository.deleteAll(obsoleteTags);
+    }
+
+    /**
+     * Método adicionado conforme solicitado no Controller
+     */
+    public Optional<RfidTag> getTagLocation(String tagId) {
+        return rfidTagRepository.findByTagId(tagId);
+    }
+
+    /**
+     * Método auxiliar útil (opcional)
+     */
+    public RfidTag save(RfidTag tag) {
+        tag.setLastScanned(LocalDateTime.now());
+        return rfidTagRepository.save(tag);
     }
 }
