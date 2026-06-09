@@ -1,10 +1,11 @@
-package com.logicorp;
+package com.logicorp.rfid.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import java.time.LocalDateTime;
+import java.util.Random;
 import java.time.temporal.ChronoUnit;
 
 @Entity

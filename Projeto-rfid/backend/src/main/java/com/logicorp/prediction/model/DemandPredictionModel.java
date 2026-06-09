@@ -1,3 +1,5 @@
+package com.logicorp.prediction.model;
+
 import weka.classifiers.trees.RandomForest;
 import weka.core.Instances;
 import weka.core.converters.ArffLoader;

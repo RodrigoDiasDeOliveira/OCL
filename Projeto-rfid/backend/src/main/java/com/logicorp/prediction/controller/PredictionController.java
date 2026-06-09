@@ -1,4 +1,4 @@
-package com.logicorp;
+package com.logicorp.prediction.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

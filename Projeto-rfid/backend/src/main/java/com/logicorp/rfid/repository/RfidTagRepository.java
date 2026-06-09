@@ -1,4 +1,4 @@
-package com.logicorp;
+package com.logicorp.rfid.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

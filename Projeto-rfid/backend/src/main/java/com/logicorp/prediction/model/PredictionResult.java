@@ -1,3 +1,7 @@
+package com.logicorp.prediction.model;
+
+
+
 public class PredictionResult {
     private String productId;
     private double predictedDemand;

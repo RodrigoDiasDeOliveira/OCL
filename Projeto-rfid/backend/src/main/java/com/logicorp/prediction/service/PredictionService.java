@@ -1,4 +1,4 @@
-package com.logicorp;
+package com.logicorp.prediction.service;
 
 import org.springframework.stereotype.Service;
 
