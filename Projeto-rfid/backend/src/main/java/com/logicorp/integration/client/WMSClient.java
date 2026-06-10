@@ -1,0 +1,11 @@
+package com.logicorp.integration.client;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class WMSClient {
+
+    public String getWarehouseStatus() {
+        return "warehouse-status";
+    }
+}
