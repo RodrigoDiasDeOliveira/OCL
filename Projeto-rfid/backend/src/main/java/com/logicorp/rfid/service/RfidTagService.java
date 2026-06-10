@@ -5,7 +5,6 @@ import com.logicorp.rfid.repository.RfidTagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,31 +12,25 @@ import java.util.Optional;
 public class RfidTagService {
 
     @Autowired
-    private RfidTagRepository rfidTagRepository;
+    private RfidTagRepository repository;
 
-    public List<RfidTag> getAllTags() {
-        return rfidTagRepository.findAll();
+    // 📌 buscar todas as tags
+    public List<RfidTag> findAll() {
+        return repository.findAll();
     }
 
-    public RfidTag updateTag(RfidTag tag) {
-        return rfidTagRepository.save(tag);
+    // 📌 salvar ou atualizar tag
+    public RfidTag save(RfidTag tag) {
+        return repository.save(tag);
     }
 
-    public void updateTagsLocationByProduct(String productName, String newLocation) {
-        List<RfidTag> tags = rfidTagRepository.findByProductName(productName);
-        for (RfidTag tag : tags) {
-            tag.setLocation(newLocation);
-        }
-        rfidTagRepository.saveAll(tags);
+    // 📌 buscar por ID lógico da tag
+    public Optional<RfidTag> findByTagId(String tagId) {
+        return repository.findByTagId(tagId);
     }
 
-    public void removeObsoleteTags() {
-        LocalDateTime limit = LocalDateTime.now().minusDays(30);
-        List<RfidTag> oldTags = rfidTagRepository.findByLastScannedBefore(limit);
-        rfidTagRepository.deleteAll(oldTags);
-    }
-
-    public Optional<RfidTag> getTagLocation(String tagId) {
-        return rfidTagRepository.findByTagId(tagId);
+    // 📌 deletar por entidade
+    public void delete(RfidTag tag) {
+        repository.delete(tag);
     }
 }
