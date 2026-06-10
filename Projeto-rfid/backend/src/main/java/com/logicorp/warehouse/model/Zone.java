@@ -1,4 +1,4 @@
-package com.logicorp.warehouse;
+package com.logicorp.warehouse.model;
 
 import jakarta.persistence.*;
 

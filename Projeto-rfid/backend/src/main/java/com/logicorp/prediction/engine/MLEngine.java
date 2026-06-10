@@ -1,26 +1,30 @@
 package com.logicorp.prediction.engine;
 
-import com.logicorp.rfid.model.RfidTag;
-import com.logicorp.rfid.service.RfidEventService;
-import org.springframework.stereotype.Component;
+import com.logicorp.prediction.model.PredictionResult;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class MLEngine {
 
-    private final RfidEventService eventService;
+    public PredictionResult predict(String entityId, String context) {
 
-    public MLEngine(RfidEventService eventService) {
-        this.eventService = eventService;
-    }
+        double score = Math.random(); // substitui depois por DL4J real
 
-    public PredictionResult predict(RfidTag tag) {
+        String prediction;
 
-        // FUTURO: converter eventos → INDArray → DL4J
+        if (score > 0.8) {
+            prediction = "HIGH_ACTIVITY";
+        } else if (score > 0.5) {
+            prediction = "MEDIUM_ACTIVITY";
+        } else {
+            prediction = "LOW_ACTIVITY";
+        }
+
         return new PredictionResult(
-                tag.getTagId(),
-                "warehouse-b",
-                "ML",
-                0.92
+                entityId,
+                context,
+                score,
+                prediction
         );
     }
 }

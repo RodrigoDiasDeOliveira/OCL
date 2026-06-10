@@ -1,53 +1,28 @@
 package com.logicorp.prediction.engine;
 
-import com.logicorp.rfid.model.RfidEvent;
-import com.logicorp.rfid.model.RfidTag;
-import com.logicorp.rfid.service.RfidEventService;
-import org.springframework.stereotype.Component;
+import com.logicorp.rfid.repository.RfidEventRepository;
+import com.logicorp.shipment.repository.ShipmentRepository;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-
-@Component
+@Service
 public class HistoricalEngine {
 
-    private final RfidEventService eventService;
+    private final RfidEventRepository rfidRepo;
+    private final ShipmentRepository shipmentRepo;
 
-    public HistoricalEngine(RfidEventService eventService) {
-        this.eventService = eventService;
+    public HistoricalEngine(
+            RfidEventRepository rfidRepo,
+            ShipmentRepository shipmentRepo) {
+
+        this.rfidRepo = rfidRepo;
+        this.shipmentRepo = shipmentRepo;
     }
 
-    public PredictionResult predict(RfidTag tag) {
-
-        List<RfidEvent> history = eventService.getHistory(tag.getTagId());
-
-        if (history.isEmpty()) {
-            return new PredictionResult(
-                    tag.getTagId(),
-                    fallback(tag),
-                    "HISTORICAL",
-                    0.4
-            );
-        }
-
-        // 🧠 lógica simples evolutiva (base real)
-        String lastLocation = history.get(history.size() - 1).getLocation();
-
-        String predicted = switch (lastLocation.toLowerCase()) {
-            case "warehouse-a" -> "warehouse-b";
-            case "warehouse-b" -> "shipping-zone";
-            case "shipping-zone" -> "in-transit";
-            default -> "analysis-required";
-        };
-
-        return new PredictionResult(
-                tag.getTagId(),
-                predicted,
-                "HISTORICAL",
-                0.75
-        );
+    public long countEventsLast24h() {
+        return rfidRepo.findAll().size();
     }
 
-    private String fallback(RfidTag tag) {
-        return tag.getLocation() != null ? tag.getLocation() : "unknown";
+    public long countShipments() {
+        return shipmentRepo.findAll().size();
     }
 }

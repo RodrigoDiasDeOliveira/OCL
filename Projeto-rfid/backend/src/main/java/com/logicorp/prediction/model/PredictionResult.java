@@ -4,14 +4,20 @@ import java.time.LocalDateTime;
 
 public class PredictionResult {
 
-    private String productId;
-    private double predictedDemand;
-    private LocalDateTime predictionTimestamp;
+    private String entityId; // tagId, shipmentId etc
+    private String type;     // RFID / SHIPMENT / STOCK
 
-    public PredictionResult(String productId, double predictedDemand) {
-        this.productId = productId;
-        this.predictedDemand = predictedDemand;
-        this.predictionTimestamp = LocalDateTime.now();
+    private double score;
+
+    private String prediction;
+
+    private LocalDateTime timestamp = LocalDateTime.now();
+
+    public PredictionResult(String entityId, String type, double score, String prediction) {
+        this.entityId = entityId;
+        this.type = type;
+        this.score = score;
+        this.prediction = prediction;
     }
 
     // getters/setters

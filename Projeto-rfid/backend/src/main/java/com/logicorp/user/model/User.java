@@ -1,4 +1,4 @@
-package com.logicorp.user;
+package com.logicorp.user.model;
 
 import com.logicorp.company.Company;
 import jakarta.persistence.*;
