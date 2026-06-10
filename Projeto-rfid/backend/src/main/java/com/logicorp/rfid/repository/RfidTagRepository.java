@@ -1,5 +1,6 @@
 package com.logicorp.rfid.repository;
 
+import com.logicorp.rfid.model.RfidTag;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

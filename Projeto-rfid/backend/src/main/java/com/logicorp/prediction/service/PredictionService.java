@@ -1,33 +1,27 @@
 package com.logicorp.prediction.service;
 
+import com.logicorp.rfid.model.RfidTag;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class PredictionService {
 
-    // Modelos de ML desativados temporariamente
-    // private LocationPredictionModel locationModel;
-    // private DemandPredictionModel demandModel;
-
-    public PredictionService() {
-        // Inicialização dos modelos comentada
-        // locationModel = new LocationPredictionModel();
-        // demandModel = new DemandPredictionModel();
-    }
-
     public String predictNextLocation(RfidTag tag) {
-        // Versão simplificada sem ML
-        return "Previsão simulada: " + tag.getProductName() + 
-               " provavelmente ainda está em " + tag.getLocation();
-    }
 
-    public PredictionResult predictDemand(String productId) {
-        // Versão simulada
-        double simulatedDemand = Math.random() * 100 + 50; // entre 50 e 150
-        return new PredictionResult(productId, simulatedDemand);
-    }
+        // lógica simples inicial (placeholder inteligente)
+        String current = tag.getLocation();
 
-    // Métodos auxiliares removidos ou comentados...
+        // exemplo de regra inicial evolutiva
+        if (current == null) return "UNKNOWN";
+
+        if (current.equalsIgnoreCase("warehouse-a")) {
+            return "warehouse-b";
+        }
+
+        if (current.equalsIgnoreCase("warehouse-b")) {
+            return "shipping-zone";
+        }
+
+        return "analysis-required";
+    }
 }

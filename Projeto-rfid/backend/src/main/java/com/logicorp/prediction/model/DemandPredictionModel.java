@@ -2,7 +2,9 @@ package com.logicorp.prediction.model;
 
 import weka.classifiers.trees.RandomForest;
 import weka.core.Instances;
-import weka.core.converters.ArffLoader;
+import weka.core.converters.ConverterUtils.DataSource;
+
+import java.io.File;
 
 public class DemandPredictionModel {
 
@@ -13,10 +15,9 @@ public class DemandPredictionModel {
     }
 
     public Instances loadData(String filePath) throws Exception {
-        ArffLoader loader = new ArffLoader();
-        loader.setFile(new File(filePath));
-        Instances data = loader.getDataSet();
-        data.setClassIndex(data.numAttributes() - 1);  // A última coluna é o alvo (demand)
+        DataSource source = new DataSource(filePath);
+        Instances data = source.getDataSet();
+        data.setClassIndex(data.numAttributes() - 1);
         return data;
     }
 

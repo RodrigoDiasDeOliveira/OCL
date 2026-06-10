@@ -1,5 +1,7 @@
 package com.logicorp.rfid.controller;
 
+import com.logicorp.rfid.model.RfidTag;
+import com.logicorp.rfid.service.RfidTagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -21,16 +23,14 @@ public class RfidTagController {
 
     @PostMapping("/update")
     public RfidTag updateTag(@RequestBody RfidTag tag) {
-        try {
-            return rfidTagService.updateTag(tag);
-        } catch (RuntimeException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Tag not found", e);
-        }
+        return rfidTagService.updateTag(tag);
     }
 
     @PostMapping("/update-location")
-    public void updateTagsLocationByProduct(@RequestParam String productName, 
-                                           @RequestParam String newLocation) {
+    public void updateTagsLocationByProduct(
+            @RequestParam String productName,
+            @RequestParam String newLocation) {
+
         rfidTagService.updateTagsLocationByProduct(productName, newLocation);
     }
 
