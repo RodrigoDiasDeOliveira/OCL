@@ -129,7 +129,7 @@ Connects external systems:
 ## 📦 Project Structure
 
 
-com.logicorp
+com.triminds
 
 ├── rfid
 ├── prediction
