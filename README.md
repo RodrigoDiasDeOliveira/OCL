@@ -1,25 +1,16 @@
-![OCL Architecture](https://github.com/user-attachments/assets/3d333150-0833-4fb9-986d-9d4e316d58f1)
 
-![Oracle Cloud](https://img.shields.io/badge/Oracle_Cloud-Primary-F80000?style=for-the-badge&logo=oracle&logoColor=white)
-![Azure DR](https://img.shields.io/badge/Azure-Disaster_Recovery-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
-![Multi-Cloud Ready](https://img.shields.io/badge/Multi--Cloud-Ready-0066CC?style=for-the-badge&logo=cloud&logoColor=white)
+<img width="1536" height="1024" alt="ChatGPT Image 2 de jun  de 2026, 11_48_33" src="https://github.com/user-attachments/assets/8fd806af-447d-4e38-9692-8a83ff09ab3a" />
 
-# OCL – Oracle Cloud Logistics Intelligence Platform
+# TLP – Triminds Logistics Plataform Intelligence Platform
 **RFID + AI-Powered Logistics Optimization + Multi-Tenant SaaS Architecture**
 
-![Java](https://img.shields.io/badge/Java-17-blue)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2-green)
-![React](https://img.shields.io/badge/React-18-blue)
-![Oracle Cloud](https://img.shields.io/badge/Oracle%20Cloud-Free%20Tier-orange)
-![Azure](https://img.shields.io/badge/Azure-DR-blue)
-![Docker](https://img.shields.io/badge/Docker-Ready-blue)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-Ready-green)
+
 
 ---
 
 ## 🧠 Overview
 
-OCL (Oracle Cloud Logistics Intelligence Platform) is a **real-time logistics intelligence system** built to transform RFID events into actionable business insights using:
+TLP (Triminds Logistics Intelligence Platform) is a **real-time logistics intelligence system** built to transform RFID events into actionable business insights using:
 
 - Event-driven architecture
 - Prediction Engine (rules + ML-ready)
@@ -34,9 +25,7 @@ The system is designed for **warehouse optimization, shipment tracking, and pred
 
 ## 🚀 Key Business Value
 
-- 📦 +30% improvement in tracking accuracy
-- ⚡ +40% operational efficiency
-- 💰 -25% storage and logistics costs
+
 - 📊 Real-time warehouse visibility
 - 🧠 Predictive logistics decisions
 - 🏢 Multi-tenant SaaS ready architecture
@@ -123,7 +112,7 @@ Connects external systems:
 | Primary DB       | Oracle Cloud   | Production DB   |
 | Disaster Recovery| Azure SQL      | Backup Failover |
 
-→ Failover strategy documented in `/terraform`
+→ Failover strategy documented
 
 ---
 
@@ -199,7 +188,7 @@ Advanced route optimization (A* + GNN)
 Full SaaS billing system
 🧠 Conclusion
 
-OCL is a cloud-native logistics intelligence platform designed as:
+TLP is a cloud-native logistics intelligence platform designed as:
 
 RFID → Data → Intelligence → Action
 
@@ -209,7 +198,5 @@ enterprise architecture thinking
 scalable SaaS design
 AI-driven logistics optimization
 multi-cloud resilience
-👤 Author
 
-Rodrigo Dias de Oliveira
 Triminds Initiative (2025–2026)
