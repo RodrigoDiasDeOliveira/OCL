@@ -1,0 +1,47 @@
+package com.triminds.rfid.controller;
+
+import com.triminds.rfid.model.RfidTag;
+import com.triminds.rfid.service.RfidTagService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/rfid")
+public class RfidTagController {
+
+    @Autowired
+    private RfidTagService rfidTagService;
+
+    @GetMapping
+    public List<RfidTag> getAllTags() {
+        return rfidTagService.getAllTags();
+    }
+
+    @PostMapping("/update")
+    public RfidTag updateTag(@RequestBody RfidTag tag) {
+        return rfidTagService.updateTag(tag);
+    }
+
+    @PostMapping("/update-location")
+    public void updateTagsLocationByProduct(
+            @RequestParam String productName,
+            @RequestParam String newLocation) {
+
+        rfidTagService.updateTagsLocationByProduct(productName, newLocation);
+    }
+
+    @DeleteMapping("/remove-obsolete")
+    public void removeObsoleteTags() {
+        rfidTagService.removeObsoleteTags();
+    }
+
+    @GetMapping("/location/{tagId}")
+    public RfidTag getTagLocation(@PathVariable String tagId) {
+        return rfidTagService.getTagLocation(tagId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Tag not found"));
+    }
+}
