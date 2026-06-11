@@ -1,5 +1,5 @@
 // src/pages/Shipments.tsx
-import { Truck, Clock, CheckCircle, AlertCircle } from 'lucide-react'
+import { Truck, Clock } from 'lucide-react'
 
 const shipments = [
   { id: 'SH-39481', destination: 'São Paulo - CD Distribuição', status: 'In Transit', eta: 'Hoje 18:45', items: 124, progress: 75 },
@@ -10,8 +10,10 @@ const shipments = [
 export default function Shipments() {
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-gray-900">Shipments</h1>
-      <p className="text-gray-600">Gestão e rastreamento de envios</p>
+      <div>
+        <h1 className="text-3xl font-bold text-gray-900">Shipments</h1>
+        <p className="text-gray-600">Gestão e rastreamento de envios</p>
+      </div>
 
       <div className="grid gap-6">
         {shipments.map((shipment) => (
@@ -36,7 +38,10 @@ export default function Shipments() {
                 <span>{shipment.progress}%</span>
               </div>
               <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-                <div className="h-full bg-blue-600 rounded-full" style={{ width: `${shipment.progress}%` }}></div>
+                <div 
+                  className="h-full bg-blue-600 rounded-full transition-all" 
+                  style={{ width: `${shipment.progress}%` }}
+                />
               </div>
             </div>
 
@@ -52,7 +57,6 @@ export default function Shipments() {
                 </p>
               </div>
               <div>
-                <p className="text-gray-500">Ação</p>
                 <button className="text-blue-600 hover:underline font-medium">Ver Detalhes →</button>
               </div>
             </div>

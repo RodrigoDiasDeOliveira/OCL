@@ -1,6 +1,6 @@
 // src/pages/RfidEvents.tsx
 import { useState } from 'react'
-import { Search, Filter, RefreshCw, Clock, Tag } from 'lucide-react'
+import { Search, RefreshCw, Clock } from 'lucide-react'
 
 interface RfidEvent {
   id: string
@@ -21,7 +21,7 @@ const mockEvents: RfidEvent[] = [
 ]
 
 export default function RfidEvents() {
-  const [events, setEvents] = useState(mockEvents)
+  const [events] = useState(mockEvents)
   const [searchTerm, setSearchTerm] = useState('')
   const [filterStatus, setFilterStatus] = useState<'all' | 'success' | 'warning' | 'error'>('all')
 
@@ -32,7 +32,6 @@ export default function RfidEvents() {
       (event.item && event.item.toLowerCase().includes(searchTerm.toLowerCase()))
     
     const matchesFilter = filterStatus === 'all' || event.status === filterStatus
-    
     return matchesSearch && matchesFilter
   })
 
@@ -52,7 +51,6 @@ export default function RfidEvents() {
         </button>
       </div>
 
-      {/* Filters */}
       <div className="flex flex-col md:flex-row gap-4">
         <div className="flex-1 relative">
           <Search className="absolute left-3 top-3 text-gray-400" size={20} />
@@ -65,21 +63,18 @@ export default function RfidEvents() {
           />
         </div>
 
-        <div className="flex gap-3">
-          <select 
-            value={filterStatus}
-            onChange={(e) => setFilterStatus(e.target.value as any)}
-            className="bg-white border border-gray-200 rounded-2xl px-4 py-3 focus:outline-none"
-          >
-            <option value="all">Todos os Status</option>
-            <option value="success">Sucesso</option>
-            <option value="warning">Atenção</option>
-            <option value="error">Erro</option>
-          </select>
-        </div>
+        <select 
+          value={filterStatus}
+          onChange={(e) => setFilterStatus(e.target.value as any)}
+          className="bg-white border border-gray-200 rounded-2xl px-4 py-3 focus:outline-none"
+        >
+          <option value="all">Todos os Status</option>
+          <option value="success">Sucesso</option>
+          <option value="warning">Atenção</option>
+          <option value="error">Erro</option>
+        </select>
       </div>
 
-      {/* Events Table */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -128,17 +123,7 @@ export default function RfidEvents() {
             </tbody>
           </table>
         </div>
-
-        {filteredEvents.length === 0 && (
-          <div className="p-12 text-center text-gray-500">
-            Nenhum evento encontrado
-          </div>
-        )}
       </div>
-
-      <p className="text-xs text-gray-500 text-center">
-        Simulação de eventos em tempo real • Última atualização: agora
-      </p>
     </div>
   )
 }

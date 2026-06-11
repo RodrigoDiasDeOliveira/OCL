@@ -1,6 +1,6 @@
 // src/pages/Inventory.tsx
+import { Package, Search, Plus } from 'lucide-react'
 import { useState } from 'react'
-import { Package, Search, AlertTriangle, Plus } from 'lucide-react'
 
 interface InventoryItem {
   id: string
@@ -20,7 +20,7 @@ const mockInventory: InventoryItem[] = [
 ]
 
 export default function Inventory() {
-  const [items, setItems] = useState(mockInventory)
+  const [items] = useState(mockInventory)
   const [searchTerm, setSearchTerm] = useState('')
 
   const filteredItems = items.filter(item =>
