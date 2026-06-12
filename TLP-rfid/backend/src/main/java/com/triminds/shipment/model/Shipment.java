@@ -1,7 +1,9 @@
-package com.triminds.shipment;
+package com.triminds.shipment.model;
 
 import com.triminds.company.Company;
 import jakarta.persistence.*;
+import jakarta.persistence.Id;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 

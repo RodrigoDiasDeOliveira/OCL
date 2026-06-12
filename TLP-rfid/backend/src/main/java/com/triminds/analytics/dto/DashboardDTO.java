@@ -1,4 +1,4 @@
-package com.trminds.analytics.dto;
+package com.triminds.analytics.dto;
 
 public class DashboardDTO {
 
