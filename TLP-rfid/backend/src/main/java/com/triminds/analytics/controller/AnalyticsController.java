@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api/dashboard")
 public class AnalyticsController {
 
     private final AnalyticsService analyticsService;
@@ -16,8 +17,8 @@ public class AnalyticsController {
         this.analyticsService = analyticsService;
     }
 
-    @GetMapping("/api/analytics/dashboard")
+    @GetMapping()
     public DashboardDTO dashboard() {
         return analyticsService.getDashboard();
     }
-}
+} 
