@@ -5,7 +5,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      <h1>Dashboard</h1>
+      <h1>Dashboard Real</h1>
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
