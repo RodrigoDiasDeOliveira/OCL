@@ -6,7 +6,8 @@ import {
   Package, 
   Truck, 
   TrendingUp, 
-  BarChart3 
+  BarChart3, 
+  ArrowDownToLine
 } from 'lucide-react'
 
 const menuItems = [
@@ -16,6 +17,7 @@ const menuItems = [
   { path: '/shipments', icon: Truck, label: 'Shipments' },
   { path: '/predictions', icon: TrendingUp, label: 'Predictions' },
   { path: '/analytics', icon: BarChart3, label: 'Analytics' },
+  { path: '/integration', icon: ArrowDownToLine, label: 'Integration' },
 ]
 
 export default function Sidebar() {

@@ -8,6 +8,7 @@ import Shipments from './pages/Shipments'
 import Predictions from './pages/Predictions'
 import Analytics from './pages/Analytics'
 import Login from './pages/Login'
+import Integration from './pages/Integration'
 
 import PrivateRoute from './components/auth/PrivateRoute'
 
@@ -35,6 +36,7 @@ function App() {
         <Route path="shipments" element={<Shipments />} />
         <Route path="predictions" element={<Predictions />} />
         <Route path="analytics" element={<Analytics />} />
+        <Route path="integration" element={<Integration />} />
       </Route>
 
       {/* fallback */}
