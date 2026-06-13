@@ -1,27 +1,55 @@
-version: '3.8'
+version: '3.9'
 
 services:
   backend:
-    build: ./TLP-rfid/backend
+    build: .
+    container_name: tlp-backend
     ports:
       - "8080:8080"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:h2:file:./data/tlpdb;DB_CLOSE_ON_EXIT=FALSE
+      - SPRING_DATASOURCE_URL=jdbc:h2:file:/data/tlpdb;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
       - SPRING_DATASOURCE_USERNAME=sa
       - SPRING_DATASOURCE_PASSWORD=
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_PROFILES_ACTIVE=dev
     volumes:
       - ./data:/data
+      - ./src:/app/src
     depends_on:
       - simulator
-
-  simulator:
-    build: ./TLP-rfid/simulator  # crie uma pasta simples com Node/Python simulando leitores
-    ports:
-      - "3001:3001"
+    restart: unless-stopped
 
   frontend:
-    build: ./TLP-rfid/frontend
+    build: ./frontend
+    container_name: tlp-frontend
     ports:
-      - "3000:3000"
+      - "3000:5173"        # Vite default port
+    environment:
+      - VITE_API_URL=http://localhost:8080
     depends_on:
       - backend
+    restart: unless-stopped
+
+  simulator:
+    build: ./simulator
+    container_name: tlp-simulator
+    environment:
+      - BACKEND_URL=http://backend:8080
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  # Banco H2 (opcional - para visualização)
+  h2-console:
+    image: oscarfonts/h2
+    container_name: tlp-h2
+    ports:
+      - "8082:8082"   # H2 Console
+      - "1521:1521"   # TCP
+    environment:
+      - H2_OPTIONS=-web -tcp -tcpAllowOthers -webAllowOthers
+    volumes:
+      - ./data:/opt/h2-data
+
+volumes:
+  data:
