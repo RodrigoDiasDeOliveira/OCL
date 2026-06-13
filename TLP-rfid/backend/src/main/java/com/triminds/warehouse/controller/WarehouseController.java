@@ -1,7 +1,7 @@
-package com.logicorp.warehouse.controller;
+package com.triminds.warehouse.controller;
 
-import com.logicorp.warehouse.model.Warehouse;
-import com.logicorp.warehouse.service.WarehouseService;
+import com.triminds.warehouse.model.Warehouse;
+import com.triminds.warehouse.service.WarehouseService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

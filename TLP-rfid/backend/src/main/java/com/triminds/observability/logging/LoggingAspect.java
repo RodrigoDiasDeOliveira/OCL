@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-    @Before("execution(* com.logicorp..*(..))")
+    @Before("execution(* com.triminds..*(..))")
     public void logExecution() {
         System.out.println("[LOG] Executando operação crítica");
     }
