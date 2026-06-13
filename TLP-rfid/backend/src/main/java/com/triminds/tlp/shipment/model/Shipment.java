@@ -1,0 +1,25 @@
+package com.triminds.tlp.shipment.model;
+
+import com.triminds.tlp.company.Company;
+import jakarta.persistence.*;
+import jakarta.persistence.Id;
+import lombok.Data;
+
+import java.time.LocalDateTime;
+
+@Entity
+public class Shipment {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String origin;
+    private String destination;
+    private String status;
+
+    private LocalDateTime createdAt = LocalDateTime.now();
+
+    @ManyToOne
+    private Company company;
+}
