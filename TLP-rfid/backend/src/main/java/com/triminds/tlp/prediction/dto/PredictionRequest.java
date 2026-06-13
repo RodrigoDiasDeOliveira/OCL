@@ -1,21 +1,17 @@
 package com.triminds.tlp.prediction.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class PredictionRequest {
-    private String companyId;
-    private String predictionType;
-    private String context; // JSON com dados atuais
-}
-
-@Data
-public class PredictionResult {
-    private String prediction;
-    private double confidence;
-    private String explanation;
+    private String productId;
+    private double demand;
+    private int horizonDays;
+    // adicione outros campos conforme necessário
 }

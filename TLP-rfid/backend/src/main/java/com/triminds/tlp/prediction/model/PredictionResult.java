@@ -1,24 +1,15 @@
-package com.triminds.prediction.model;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.time.LocalDateTime;
-
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class PredictionResult {
-
-    private String entityId; // tagId, shipmentId etc
-    private String type;     // RFID / SHIPMENT / STOCK
-
-    private double score;
-
-    private String prediction;
-
-    private LocalDateTime timestamp = LocalDateTime.now();
-
-    public PredictionResult(String entityId, String type, double score, String prediction) {
-        this.entityId = entityId;
-        this.type = type;
-        this.score = score;
-        this.prediction = prediction;
-    }
-
-    // getters/setters
+    private String productId;
+    private double predictedValue;
+    private double confidence;
+    private String modelType;
 }
