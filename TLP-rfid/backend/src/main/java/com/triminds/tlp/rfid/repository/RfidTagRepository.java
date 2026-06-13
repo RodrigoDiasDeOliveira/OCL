@@ -1,6 +1,6 @@
-package com.triminds.rfid.repository;
+package com.triminds.tlp.rfid.repository;
 
-import com.triminds.rfid.model.RfidTag;
+import com.triminds.tlp.rfid.model.RfidTag;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

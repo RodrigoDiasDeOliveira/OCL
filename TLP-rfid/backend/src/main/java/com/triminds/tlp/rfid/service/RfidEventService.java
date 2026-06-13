@@ -1,7 +1,7 @@
-package com.triminds.rfid.service;
+package com.triminds.tlp.rfid.service;
 
-import com.triminds.rfid.model.RfidEvent;
-import com.triminds.rfid.repository.RfidEventRepository;
+import com.triminds.tlp.rfid.model.RfidEvent;
+import com.triminds.tlp.rfid.repository.RfidEventRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

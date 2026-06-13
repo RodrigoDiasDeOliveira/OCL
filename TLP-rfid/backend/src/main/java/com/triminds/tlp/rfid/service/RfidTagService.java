@@ -1,7 +1,7 @@
-package com.triminds.rfid.service;
+package com.triminds.tlp.rfid.service;
 
-import com.triminds.rfid.model.RfidTag;
-import com.triminds.rfid.repository.RfidTagRepository;
+import com.triminds.tlp.rfid.model.RfidTag;
+import com.triminds.tlp.rfid.repository.RfidTagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
