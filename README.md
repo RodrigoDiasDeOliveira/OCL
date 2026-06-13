@@ -1,202 +1,124 @@
 
 <img width="1536" height="1024" alt="ChatGPT Image 2 de jun  de 2026, 11_48_33" src="https://github.com/user-attachments/assets/8fd806af-447d-4e38-9692-8a83ff09ab3a" />
 
-# TLP – Triminds Logistics Plataform Intelligence Platform
-**RFID + AI-Powered Logistics Optimization + Multi-Tenant SaaS Architecture**
+TLP - Triminds Logistics Platform
 
+**Real-time Logistics Platform with RFID + AI**
 
-
----
-
-## 🧠 Overview
-
-TLP (Triminds Logistics Intelligence Platform) is a **real-time logistics intelligence system** built to transform RFID events into actionable business insights using:
-
-- Event-driven architecture
-- Prediction Engine (rules + ML-ready)
-- Real-time Analytics & KPI system
-- Multi-tenant SaaS model
-- Enterprise-grade security (JWT)
-- Multi-cloud disaster recovery strategy
-
-The system is designed for **warehouse optimization, shipment tracking, and predictive logistics intelligence**.
+A **multi-tenant SaaS** solution for complete warehouse traceability using RFID technology, Machine Learning predictions, and operational dashboards.
 
 ---
 
-## 🚀 Key Business Value
+## 🎯 Current Features (June 2026)
 
+### Implemented Functionalities:
 
-- 📊 Real-time warehouse visibility
-- 🧠 Predictive logistics decisions
-- 🏢 Multi-tenant SaaS ready architecture
-
----
-
-## 🏗️ Architecture Overview
-
-
-RFID Events → Event Layer → Prediction Engine → Analytics Engine → Dashboard
-↓
-Integration Layer (ERP / WMS / IoT)
-↓
-Multi-Tenant SaaS Core (Company Isolation)
-
+- **Real-time RFID Event Ingestion** (batch + simulator)
+- **Automatic RFID Reader Simulator** (generates events every 2-3 seconds)
+- **Live Operational Dashboard** with real-time KPIs
+- **Machine Learning Predictions** (basic engine + rules + DL4J ready)
+- **Analytics & KPIs** (24h events, active tags, throughput, bottlenecks)
+- **WebSocket** for live RFID event updates
+- **Complete JWT Authentication** (login + security filter)
+- **Basic Multi-tenant Architecture** (`companyId`)
+- **Modern Frontend** with React + TypeScript + Ant Design + WebSocket
 
 ---
 
-## 🧩 Core Modules
-
-### 📡 RFID Module
-- Tag tracking
-- Event ingestion
-- Movement history
-
-### 🧠 Prediction Engine
-- HistoricalEngine (data aggregation)
-- MLEngine (inference layer)
-- PredictionResult (output model)
-
-Supports:
-- demand prediction
-- location prediction
-- inventory forecasting
-
----
-
-### 📊 Analytics Engine
-- Warehouse KPIs
-- Shipment KPIs
-- Prediction accuracy
-- Heatmaps (zone activity)
-- Bottleneck detection
-- Route optimization
-- Customer behavior analysis
-
----
-
-### 🔌 Integration Layer
-Connects external systems:
-- ERP systems
-- WMS platforms
-- IoT devices
-- External APIs
-
----
-
-### 🏢 Multi-Tenant Core
-- Company-based isolation
-- JWT tenant resolution
-- secure data separation per client
-
----
-
-### 🔐 Security Layer
-- JWT authentication
-- Role-based access control
-- Gateway filtering
-- Tenant isolation
-
----
-
-### 📡 Observability Layer
-- Logging (AOP)
-- Metrics (Micrometer)
-- Tracing (TraceId system)
-
----
-
-## ☁️ Multi-Cloud Strategy (Active-Passive)
-
-| Layer            | Provider        | Role            |
-|------------------|----------------|-----------------|
-| Primary DB       | Oracle Cloud   | Production DB   |
-| Disaster Recovery| Azure SQL      | Backup Failover |
-
-→ Failover strategy documented
-
----
-
-## ☸️ Deployment Architecture
-
-- Docker containerization
-- Kubernetes orchestration
-- Helm-based deployment
-- Horizontal Pod Autoscaling (HPA)
-- GitHub Actions CI/CD pipeline
-
----
-
-## 📦 Project Structure
-
-
-com.triminds
-
-├── rfid
-├── prediction
-├── analytics
-├── integration
-├── security
-├── gateway
-├── shipment
-├── warehouse
-├── company
-├── user
-├── observability
-
-
----
-
-## ⚙️ Quick Start
+## 🚀 Technologies
 
 ### Backend
+- **Spring Boot 3.3** + Java 17
+- Spring Data JPA + H2 (development)
+- Spring Security + JWT
+- WebSocket (STOMP + SockJS)
+- DL4J (Deeplearning4j) ready for ML
+- Lombok
+
+### Frontend
+- React 18 + TypeScript + Vite
+- Ant Design (UI Components)
+- Axios + WebSocket (STOMP)
+- Tailwind CSS
+
+### DevOps & Infra
+- Maven
+- Docker + Docker Compose
+- GitHub Actions (planned)
+
+---
+
+## 📁 Project Structure
+src/main/java/com/triminds/tlp/
+├── security/           → JWT, Auth, SecurityConfig
+├── websocket/          → WebSocketConfig and Handler
+├── rfid/               → Events, Repository, Service, Controller + Simulator
+├── prediction/         → PredictionService, MLEngine, DTOs
+├── analytics/          → AnalyticsService and Controller
+├── dto/                → Shared DTOs
+└── TlpRfidApplication.java
+text---
+
+## 🏃 How to Run (Local)
+
+### 1. Backend
+
 ```bash
-cd backend
 mvn clean install
-java -jar target/ocl.jar
-Infrastructure
-cd terraform
-terraform init
-terraform apply
-Kubernetes
-kubectl apply -f kubernetes/
-📈 Analytics Capabilities
-Real-time warehouse throughput
-Bottleneck detection
-Shipment delay analysis
-Inventory forecasting
-AI-based demand prediction
-Customer segmentation
-🤖 AI & Prediction
+mvn spring-boot:run
+The RFID simulator starts automatically.
+2. Frontend
+Bashcd frontend
+npm install
+npm run dev
+Access: http://localhost:5173
+Demo Credentials
 
-The system includes:
+Email: demo@triminds.com
+Password: demo123
 
-Rule-based engine (baseline logic)
-Machine Learning engine (MLEngine)
-Historical data aggregation (HistoricalEngine)
 
-Future integrations:
+📡 Main Endpoints
+Auth
 
-TensorFlow
-DL4J
-Streaming inference (Kafka)
-🔭 Future Roadmap
-Event-driven architecture (Kafka)
-CQRS + Event Sourcing
-Auto-scaling ML pipeline
-Real-time streaming analytics
-Advanced route optimization (A* + GNN)
-Full SaaS billing system
-🧠 Conclusion
+POST /api/auth/login → JWT Login
 
-TLP is a cloud-native logistics intelligence platform designed as:
+RFID
 
-RFID → Data → Intelligence → Action
+POST /api/rfid/events/ingest
+GET /api/rfid/events/realtime?companyId=empresa-demo
 
-It demonstrates:
+Analytics
 
-enterprise architecture thinking
-scalable SaaS design
-AI-driven logistics optimization
-multi-cloud resilience
+GET /api/analytics/kpis?companyId=empresa-demo
+
+Prediction
+
+POST /api/prediction
+GET /api/prediction/recent?companyId=empresa-demo
+
+WebSocket
+
+/ws/rfid (STOMP)
+
+
+✅ Current Status
+
+Functional MVP: Yes
+End-to-End Demo: Yes (RFID → Live Dashboard)
+ML: Basic engine (ready for real models)
+Production Ready: In progress (H2 database, no billing yet, basic multi-tenant)
+
+
+🚀 Next Steps (Roadmap)
+
+Complete Docker Compose setup
+Migrate to Oracle Cloud / PostgreSQL
+ERP Integration (Totvs, SAP)
+Train real ML models (DL4J)
+Advanced RBAC + Multi-tenant
+Billing & SaaS Plans
+Swagger/OpenAPI Documentation
+
 
 Triminds Initiative (2025–2026)
