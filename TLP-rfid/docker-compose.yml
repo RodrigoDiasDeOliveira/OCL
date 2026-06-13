@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./TLP-rfid/backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:h2:file:./data/tlpdb;DB_CLOSE_ON_EXIT=FALSE
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=
+    volumes:
+      - ./data:/data
+    depends_on:
+      - simulator
+
+  simulator:
+    build: ./TLP-rfid/simulator  # crie uma pasta simples com Node/Python simulando leitores
+    ports:
+      - "3001:3001"
+
+  frontend:
+    build: ./TLP-rfid/frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
