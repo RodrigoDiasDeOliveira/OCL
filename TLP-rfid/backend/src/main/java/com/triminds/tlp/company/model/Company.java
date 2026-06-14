@@ -12,5 +12,9 @@ public class Company {
 
     private String name;
     private String taxId;
+
+    @Column(unique = true, nullable = false)
+    private String tenantId;
+
     private LocalDateTime createdAt = LocalDateTime.now();
 }

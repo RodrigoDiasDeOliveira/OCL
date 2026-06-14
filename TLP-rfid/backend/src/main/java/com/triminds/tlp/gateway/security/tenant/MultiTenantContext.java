@@ -1,50 +1,12 @@
-package com.triminds.gateaway.security.tenant;
+package com.triminds.tlp.gateway.security.tenant;
 
-public class MultiTenantContext {
+public final class MultiTenantContext {
 
-    private static final ThreadLocal<String> CURRENT_TENANT = new ThreadLocal<>();
-    private static final ThreadLocal<String> CURRENT_USER = new ThreadLocal<>();
-    private static final ThreadLocal<String> CURRENT_ROLE = new ThreadLocal<>();
+    private static final ThreadLocal<String> CURRENT = new ThreadLocal<>();
 
-    // -------------------------
-    // TENANT
-    // -------------------------
-    public static void setTenantId(String tenantId) {
-        CURRENT_TENANT.set(tenantId);
-    }
+    private MultiTenantContext() {}
 
-    public static String getTenantId() {
-        return CURRENT_TENANT.get();
-    }
-
-    // -------------------------
-    // USER
-    // -------------------------
-    public static void setUserEmail(String email) {
-        CURRENT_USER.set(email);
-    }
-
-    public static String getUserEmail() {
-        return CURRENT_USER.get();
-    }
-
-    // -------------------------
-    // ROLE
-    // -------------------------
-    public static void setUserRole(String role) {
-        CURRENT_ROLE.set(role);
-    }
-
-    public static String getUserRole() {
-        return CURRENT_ROLE.get();
-    }
-
-    // -------------------------
-    // CLEAR (IMPORTANTE)
-    // -------------------------
-    public static void clear() {
-        CURRENT_TENANT.remove();
-        CURRENT_USER.remove();
-        CURRENT_ROLE.remove();
-    }
+    public static void setTenantId(String tenantId) { CURRENT.set(tenantId); }
+    public static String getTenantId() { return CURRENT.get(); }
+    public static void clear() { CURRENT.remove(); }
 }

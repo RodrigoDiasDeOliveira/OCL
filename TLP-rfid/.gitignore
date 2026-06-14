@@ -5,6 +5,11 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+*.iml
+.idea/
+.vscode/
+node_modules/
+dist/
 
 # Maven
 .mvn/

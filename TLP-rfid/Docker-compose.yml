@@ -1,0 +1,41 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container\_name: tlp-postgres
+    environment:
+      POSTGRES\_DB: tlp
+      POSTGRES\_USER: tlp
+      POSTGRES\_PASSWORD: tlp
+    ports: \["5432:5432"]
+    volumes: \[pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: \["CMD-SHELL", "pg\_isready -U tlp"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build: ./backend
+    container\_name: tlp-backend
+    depends\_on:
+      postgres: { condition: service\_healthy }
+    environment:
+      SPRING\_PROFILES\_ACTIVE: prod
+      DB\_URL: jdbc:postgresql://postgres:5432/tlp
+      DB\_USER: tlp
+      DB\_PASS: tlp
+      JWT\_SECRET: ${JWT\_SECRET:-MinhaChaveSuperSecretaTrocarEmProd0123456789}
+    ports: \["8080:8080"]
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container\_name: tlp-frontend
+    depends\_on: \[backend]
+    environment:
+      VITE\_API\_URL: http://localhost:8080
+    ports: \["3000:5173"]
+    restart: unless-stopped
+
+volumes:
+  pgdata:

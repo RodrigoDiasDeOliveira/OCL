@@ -1,16 +1,7 @@
-package com.triminds.security.auth;
+package com.triminds.tlp.security.auth;
 
-public class TokenResponse {
-
-    private String token;
-
-    public TokenResponse() {}
-
-    public TokenResponse(String token) {
-        this.token = token;
-    }
-
-    public String getToken() {
-        return token;
+public record TokenResponse(String accessToken, String tokenType, long expiresIn) {
+    public static TokenResponse bearer(String token, long expiresIn) {
+        return new TokenResponse(token, "Bearer", expiresIn);
     }
 }
